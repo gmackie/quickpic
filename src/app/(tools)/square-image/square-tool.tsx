@@ -10,7 +10,7 @@ export const metadata = {
 
 export const SquareTool: React.FC = () => {
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [backgroundColor, setBackgroundColor] = useState<"black" | "white">(
+  const [backgroundColor, setBackgroundColor] = useState<"black" | "white" | "red">(
     "white"
   );
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -33,7 +33,7 @@ export const SquareTool: React.FC = () => {
   const handleBackgroundColorChange = (
     event: ChangeEvent<HTMLInputElement>
   ) => {
-    const color = event.target.value as "black" | "white";
+    const color = event.target.value as "black" | "white" | "red";
     setBackgroundColor(color);
   };
 
@@ -166,6 +166,16 @@ export const SquareTool: React.FC = () => {
             className="form-radio text-blue-600"
           />
           <span className="ml-2">Black Background</span>
+        </label>
+        <label className="inline-flex items-center">
+          <input
+            type="radio"
+            value="red"
+            checked={backgroundColor === "red"}
+            onChange={handleBackgroundColorChange}
+            className="form-radio text-blue-600"
+          />
+          <span className="ml-2">Red Background</span>
         </label>
       </div>
 
